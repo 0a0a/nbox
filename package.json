@@ -1,0 +1,31 @@
+{
+  "name": "nbox",
+  "version": "0.1.0",
+  "description": "NBOX PRIVATE MASTER",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbxyard/nbox.git"
+  },
+  "keywords": [
+    "nbox",
+    "private",
+    "inner"
+  ],
+  "author": "bbxyard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bbxyard/nbox/issues"
+  },
+  "homepage": "https://github.com/bbxyard/nbox#readme",
+  "dependencies": {
+    "lerna": "^2.10.0"
+  }
+}
