@@ -5,8 +5,8 @@
 
 const RES = Object.assign(
   {},
-  RES_CN,
+  RES_CN_AREA,
   help: function() { console.log('res: ', module.exports.res); }
 );
 
-module.exports.res = RES;
+module.exports = RES;

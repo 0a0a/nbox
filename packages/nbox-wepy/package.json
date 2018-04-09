@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/bbxyard/nbox/issues"
   },
-  "homepage": "https://github.com/bbxyard/nbox#readme"
+  "homepage": "https://github.com/bbxyard/nbox#readme",
+  "devDependencies": {
+    "chalk": "^2.3.2",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1"
+  }
 }

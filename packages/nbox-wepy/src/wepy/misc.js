@@ -3,7 +3,7 @@
  * @description 微信相关封装
  */
 
-const SUB_WX_MISC = (function() {
+const WEPY_WEPY_MISC = (function() {
 
   // import wepy from 'wepy';
   const wepy = require('wepy');

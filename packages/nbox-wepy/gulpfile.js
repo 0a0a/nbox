@@ -5,7 +5,7 @@ const handler = new GulpHandler(pkg);
 
 
 gulp.task('build-concat', function() {
-  return handler.concat(['./src/cn/*.js', './src/index.js']);
+  return handler.concat(['./src/wepy/*.js', './src/index.js']);
 });
 
 gulp.task('build-dispatch', ['build-concat'], function() {
