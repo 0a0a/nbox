@@ -13,5 +13,5 @@ module.exports = {
   kit: require('./lib/nbox-kit'),
   core: require('./lib/nbox-core'),
   wepy: require('./lib/nbox-wepy'),
-  welcome: welcome
+  help: function() { console.log('nbox: ', module.exports); }
 };

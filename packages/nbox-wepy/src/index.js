@@ -6,7 +6,7 @@
 const WEPY = Object.assign(
   {},
   WEPY_WEPY_MISC,
-  help: function() { console.log('wepy: ', module.exports.res); }
+  help: function() { console.log('wepy: ', module.exports); }
 );
 
 module.exports = WEPY;

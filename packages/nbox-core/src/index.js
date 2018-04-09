@@ -29,7 +29,7 @@ const CORE = Object.assign(
   SUB_FOOBAR_FOO,
   SUB_FOOBAR_BAR,
 
-  help: function() { console.log('core: ', module.exports.res); }
+  help: function() { console.log('core: ', module.exports); }
 );
 
 module.exports = CORE;
