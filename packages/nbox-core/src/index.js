@@ -1,6 +1,6 @@
 /**
  * @file index.js
- * @description nbox 统一对外接口文件
+ * @description nbox-core 统一对外接口文件
  */
 
 function help() {
