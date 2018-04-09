@@ -2,7 +2,7 @@
   "name": "nbox-core",
   "version": "0.3.1",
   "description": "node-box-core js common utils box",
-  "main": "lib/nbox-core.js",
+  "main": "index.js",
   "scripts": {
     "build": "grunt build",
     "build-reserved": "webpack-cli",
