@@ -9,7 +9,7 @@ gulp.task('build-concat', function() {
 });
 
 gulp.task('build-dispatch', ['build-concat'], function() {
-  return handler.dispatch('./lib/*.js', '../nbox/lib/');
+  return handler.dispatch(pkg.main, '../nbox/lib/');
 });
 
 gulp.task('build', ['build-dispatch']);
