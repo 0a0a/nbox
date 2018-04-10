@@ -4,7 +4,8 @@
   "description": "node-box-core js common utils box",
   "main": "index.js",
   "scripts": {
-    "build": "grunt build",
+    "build": "gulp build",
+    "build-by-grunt": "grunt build",
     "build-reserved": "webpack-cli",
     "build-dev-reserved": "NODE_ENV=development webpack-cli",
     "build-prod-reserved": "NODE_ENV=production webpack-cli",

@@ -763,9 +763,9 @@ const CORE = Object.assign(
   SUB_COM_OVERRIDE,
 
   SUB_FOOBAR_FOO,
-  SUB_FOOBAR_BAR,
-
-  help: function() { console.log('core: ', module.exports.res); }
+  SUB_FOOBAR_BAR
 );
+
+CORE.help = () => { console.log('core: ', module.exports); };
 
 module.exports = CORE;
