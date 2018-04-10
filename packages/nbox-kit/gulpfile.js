@@ -3,9 +3,15 @@ const GulpHandler = require('../../scripts/gulp-handler');
 const pkg = require('./package.json');
 const handler = new GulpHandler(pkg);
 
+const inArr = [
+  './src/com/*.js',
+  './src/fs/*.js',
+  './src/rpc/*.js',
+  './src/index.js'
+];
 
 gulp.task('build-concat', function() {
-  return handler.concat(['./src/com/*.js', './src/fs/*.js', './src/index.js']);
+  return handler.concat(inArr);
 });
 
 gulp.task('build-dispatch', ['build-concat'], function() {
