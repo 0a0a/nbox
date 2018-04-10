@@ -9,9 +9,9 @@
   },
   "scripts": {
     "boot": "npm run bootstrap && npm run build",
-    "bootstrap": "lerna bootstrap --registry=https://registry.npm.taobao.org",
-    "build": "lerna run build",
-    "test-all": "lerna run test"
+    "bootstrap": "./node_modules/bin/lerna bootstrap --registry=https://registry.npm.taobao.org",
+    "build": "./node_modules/bin/lerna run build",
+    "test-all": "./node_modules/bin/lerna run test"
   },
   "repository": {
     "type": "git",
