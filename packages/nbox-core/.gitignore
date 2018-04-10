@@ -12,5 +12,5 @@ mochawesome-report
 build
 
 # build-publish
-lib
-index
+./lib
+index.js
