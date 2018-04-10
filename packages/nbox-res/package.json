@@ -4,6 +4,7 @@
   "description": "node-box-res useful resources. such as citys",
   "main": "index.js",
   "scripts": {
+    "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
