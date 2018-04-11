@@ -13,8 +13,8 @@ class DirIndex extends BaseHandler {
     super('dir-index', '目录索引化', options);
   }
 
-  process() {
-    console.log('I am the Dir Index handler');
+  process(req) {
+    console.log('I am the Dir Index handler: ', req);
   }
 };
 

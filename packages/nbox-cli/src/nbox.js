@@ -21,7 +21,6 @@ function main(AppDir, AppName, argv) {
   // 枚举所有子命令.
   let env = process.env.NODE_ENV;
   let foo = process.env.foo;
-  console.log(chalk.red('env: (env, foo)=(%s, %s)'), env, foo);
 
   const subDir = path.join(AppDir, 'sub');
   const handlers = api.kit.getFileList(subDir)
@@ -33,6 +32,7 @@ function main(AppDir, AppName, argv) {
     // console.log(handler);
   });
 
+  console.log(chalk.red('env: (env, foo)=(%s, %s)'), env, foo);
   program.parse(argv);
 }
 
