@@ -92,7 +92,7 @@ const KIT_FS_FS = (function() {
             readFile(fpath, flist);	// 递归
           } else {
             var f = new FileInfo(fpath, states);
-            console.log("add: " + f.toString());
+            // console.log("add: " + f.toString());
             flist.push(f);
           }
       } catch (e) {

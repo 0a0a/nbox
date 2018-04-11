@@ -29,13 +29,25 @@
   },
   "homepage": "https://github.com/bbxyard/nbox#readme",
   "dependencies": {
+    "ansi-regex": "^3.0.0",
+    "chalk": "^2.3.2",
+    "commander": "^2.15.1",
     "lerna": "^2.10.0"
   },
   "devDependencies": {
+    "brace-expansion": "^1.1.11",
     "chalk": "^2.3.2",
+    "end-of-stream": "^1.4.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "process-nextick-args": "^2.0.0",
+    "readable-stream": "^2.3.6",
+    "safe-buffer": "^5.1.1",
+    "sequencify": "^0.0.7",
+    "sparkles": "^1.0.0",
+    "stream-consume": "^0.1.1",
+    "util-deprecate": "^1.0.2"
   }
 }
