@@ -5,7 +5,7 @@ const program = require('commander');
 const pkg = require('../package.json');
 const fs = require('fs');
 const path = require('path');
-const api = require(process.env.NODE_ENV === 'dev' ? '../../nbox/index' : 'nbox');
+const nbox = require('./com/api-proxy');
 const babel = require('babel-core/register');
 
 /**
@@ -23,7 +23,7 @@ function main(AppDir, AppName, argv) {
   let foo = process.env.foo;
 
   const subDir = path.join(AppDir, 'sub');
-  const handlers = api.kit.getFileList(subDir)
+  const handlers = nbox.kit.getFileList(subDir)
     .map(item => require(item.path))
     .map(Handler => new Handler());
 
@@ -32,7 +32,13 @@ function main(AppDir, AppName, argv) {
     // console.log(handler);
   });
 
-  console.log(chalk.red('env: (env, foo)=(%s, %s)'), env, foo);
+  program
+    .command('*')
+    .action( function(...args){
+      console.log(program.help());
+    });
+
+  // console.log(chalk.red('env: (env, foo)=(%s, %s)'), env, foo);
   program.parse(argv);
 }
 

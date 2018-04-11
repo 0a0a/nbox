@@ -3,18 +3,30 @@
  */
 
 import BaseHandler from '../com/base';
+import {R, G, B, Y, BB, BG, BR, BY, printDebug, logCrit, logError, logInfo} from '../com/color-output';
 
 class DirIndex extends BaseHandler {
   constructor() {
     const options = [
-      { n: '-i, --src', d: 'src dir' },
-      { n: '-o, --dst', d: 'destion file' }
+      { n: '-n, --new', d: 'new or rebuild index' },
+      { n: '-c, --compare', d: 'compare index [reserved]' },
     ];
-    super('dir-index', '目录索引化', options);
+    super('dir-index <inDir> <outFile>', '目录索引化', options);
+    this.alias('di');
   }
 
-  process(req) {
-    console.log('I am the Dir Index handler: ', req);
+  process(prog, argv) {
+    const srcDir = argv[0];
+    const dstFile = argv[1];
+    printDebug('IN  srcDir: %s', B(srcDir));
+    printDebug('Out dstFile: %s', B(dstFile));
+    if (prog['new']) {
+      let ret = this.nbox.kit.calcDirMd5(srcDir, dstFile);
+      logCrit(G('calcDirMd5: <%s> -> <%s> done.'), srcDir, dstFile);
+    } else if (prog.compare) {
+      logError(G('compare: <%s> -> <%s> NOT IMPL.'), srcDir, dstFile);
+    }
+
   }
 };
 

@@ -2,31 +2,69 @@
  * @file color-output.js
  * @description 彩色输出
  */
-
 import chalk from 'chalk';
 import { vsprintf } from 'sprintf-js';
 
-export default class ColorOutput {
-  constructor() {
-    this.chalk = chalk;
-  }
 
-  red(...args) { return this.chalk.red(args); }
-  green(args) { return this.chalk.green(args); }
-  blue(...args) { return this.chalk.blue(args); }
-  yellow(...args) { return this.chalk.yellow(args); }
+function formatStr(format, argv) {
+  const s = vsprintf(format, argv);
+  return s;
+}
 
-  bgRed(...args) { return this.chalk.bgRed(args); }
-  bgGreen(...args) { return this.chalk.bgGreen(args); }
-  bgBlue(...args) { return this.chalk.bgBlue(args); }
-  bgYellow(...args) { return this.chalk.bgYellow(args); }
+function printCrit(format, ...args) {
+  console.log(chalk.bgBlue(formatStr(format, args)));
+}
 
-  log(format, ...args) {
-    const s = vsprintf(format, args);
-    console.log(s); 
-  }
-  logErr(format, ...args) {
-    const s = vsprintf(format, args); 
-    console.logErr(s);
-  }
+function printWarn(format, ...args) {
+  console.warn(chalk.red(formatStr(format, args)));
+}
+
+function printError(format, ...args) {
+  const s = chalk.bgRed(chalk.bold(formatStr(format, args)));
+  console.error(s);
+}
+
+function printInfo(format, ...args) {
+  console.log(formatStr(format, args));
+}
+
+function printDebug(format, ...args) {
+  console.log(chalk.cyan(formatStr(format, args)));
+}
+
+const ColorOut = {
+  Red : chalk.red,
+  Green: chalk.green,
+  Blue: chalk.blue,
+  Yellow: chalk.yellow,
+  
+  BgRed: chalk.BgRed,
+  BgGreen: chalk.bgGreen,
+  BgBlue: chalk.bgBlue,
+  BgYellow: chalk.bgYellow,
+
+  printCrit,
+  printWarn,
+  printError,
+  printInfo,
+  printDebug,
+
+  R : chalk.red,
+  G: chalk.green,
+  B: chalk.blue,
+  Y: chalk.yellow,
+  
+  BR: chalk.bgRed,
+  BG: chalk.bgGreen,
+  BB: chalk.bgBlue,
+  BY: chalk.bgYellow,
+
+  logCrit: printCrit,
+  logWarn: printWarn,
+  logError: printError,
+  logInfo: printInfo,
+  logDebug: printDebug
 };
+
+// export default ColorOut;
+module.exports = ColorOut;
