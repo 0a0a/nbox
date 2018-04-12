@@ -1,6 +1,10 @@
 [TOC]
 
 # 简介
+```bash
+# 核心包(部分代码)
+npm install nbox-core --save
+```
 
 # 目录结构
 ```
