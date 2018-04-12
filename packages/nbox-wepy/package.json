@@ -1,6 +1,6 @@
 {
   "name": "nbox-wepy",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "node-box-wepy for wechat mimi program.",
   "main": "index.js",
   "scripts": {
