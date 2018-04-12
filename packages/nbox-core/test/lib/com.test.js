@@ -4,7 +4,7 @@ var core = require('../../index');
 
 describe('core', function() {
   it('show', () => {
-    console.log('core: ', core);
+    // console.log('core: ', core);
     expect(true).to.be.ok;
   });
 });

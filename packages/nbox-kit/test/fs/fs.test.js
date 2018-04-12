@@ -8,7 +8,7 @@ const expect = require('chai').expect;
 describe('fs', () => {
   it('file-list', () => {
     let flist = kit.getFileList('/etc');
-    console.log('flist:', flist);
+    console.log('flist: length=%d, first elem is: ', flist.length, flist[0]);
   });
   it('file-md5', () => {
     let fmd5 = kit.calcFileMd5('/etc/hosts');

@@ -10,24 +10,24 @@ let testUrl = 'https://api.github.com';
  * @return {[type]} [description]
  */
 describe('异步测试', function() {
-  it('异步耗时-测试应该5000毫秒后结束', (done) => {
-    var x = true;
-    var f = function() {
-      x = false;
-      expect(x).to.be.not.ok;
-      done(); // 通知Mocha测试结束
-    };
-    setTimeout(f, 2500);
-  });
+  // it('异步耗时-测试应该5000毫秒后结束', (done) => {
+  //   var x = true;
+  //   var f = function() {
+  //     x = false;
+  //     expect(x).to.be.not.ok;
+  //     done(); // 通知Mocha测试结束
+  //   };
+  //   setTimeout(f, 2500);
+  // });
 
-  it('异步请求应该返回一个对象', (done) => {
-    request
-      .get(testUrl)
-      .end(function(err, res){
-        expect(res).to.be.an('object');
-        done();
-      });
-  });
+  // it('异步请求应该返回一个对象', (done) => {
+  //   request
+  //     .get(testUrl)
+  //     .end(function(err, res){
+  //       expect(res).to.be.an('object');
+  //       done();
+  //     });
+  // });
 
   it.skip('异步请求应该返回一个对象', (done) => {
     return
