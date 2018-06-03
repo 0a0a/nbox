@@ -154,6 +154,39 @@ const SUB_COM_MISC = (function() {
   }
 
   /**
+   * @name isEmpty
+   * @param obj:
+   * @description empty系列
+   *  can be Array, Object, String, null, undefined.
+   */
+  function isEmpty(obj) {
+    let b = (obj === null || obj === undefined);
+    if (!b) {
+      switch (typeof obj) {
+        case 'string': b = (obj.length == 0); break;
+        case 'object':
+          if (Array.isArray(obj)) b = (obj.length === 0);
+          else b = (Object.keys(obj).length === 0);
+          break;
+      }
+    }
+    return b;
+  }
+
+  /**
+   * @name isEqual
+   * @description 判断对象相等
+   * @param {Object} objA 
+   * @param {Object} objB 
+   */
+  function isEqual(objA, objB) {
+    const objAStr = JSON.stringify(objA);
+    const objBStr = JSON.stringify(objB);
+    const b = (objAStr.length === objBStr.length && objAStr === objBStr);
+    return b;
+  }
+
+  /**
    * @name 周期性任务
    * @param cb
    * @param interval
@@ -202,8 +235,15 @@ const SUB_COM_MISC = (function() {
     // 文件路径
     pathName2ExtName,
 
+    // 对象
+    isEmpty,
+    isEqual,
+
     // 任务相关
-    CycleTask
+    CycleTask,
+
+    // Bound.
+    EndGuard: 'EndGuard'
   };
 
   return out;

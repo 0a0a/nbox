@@ -28,3 +28,29 @@ describe('DT', function() {
     UT.debugPrint('now is: ' + s);
   });
 });
+
+/**
+ * @name 对象判断
+ */
+describe('Object', function() {
+  it('isEmpty', () => {
+    expect(UT.isEmpty(null)).to.be.ok;
+    expect(UT.isEmpty(undefined)).to.be.ok;
+    expect(UT.isEmpty('')).to.be.ok;
+    expect(UT.isEmpty({})).to.be.ok;
+    expect(UT.isEmpty([])).to.be.ok;
+    expect(UT.isEmpty([{}])).to.be.not.ok;
+    expect(UT.isEmpty('name')).to.be.not.ok;
+    expect(UT.isEmpty({year: 2018})).to.be.not.ok;
+    expect(UT.isEmpty([{month: 'June'}])).to.be.not.ok;
+  });
+  it('isEqual', () => {
+    const objA = { name: 'nbox', sub: 5 };
+    const objB = { name: 'nbox' };
+    expect(UT.isEqual(objA, objB)).to.be.not.ok;
+    objB.sub = 5;
+    expect(UT.isEqual(objA, objB)).to.be.ok;
+    delete objA.sub;
+    expect(UT.isEqual(objA, objB)).to.be.not.ok;
+  });
+});
