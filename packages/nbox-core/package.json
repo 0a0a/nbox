@@ -1,6 +1,6 @@
 {
   "name": "nbox-core",
-  "version": "0.3.2",
+  "version": "0.3.3-0",
   "description": "node-box-core js common utils box",
   "main": "index.js",
   "scripts": {
