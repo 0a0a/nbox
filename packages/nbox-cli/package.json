@@ -1,8 +1,8 @@
 {
   "name": "nbox-cli",
-  "version": "0.3.3-0",
+  "version": "0.3.3",
   "description": "nbox command line interface.",
-  "main": "index.js",
+  "main": "bin/nbox.js",
   "scripts": {
     "test": "echo pass"
   },
@@ -36,6 +36,7 @@
     "babel-preset-env": "^1.6.1",
     "chalk": "^2.3.2",
     "commander": "^2.15.1",
+    "nbox": "^0.3.3",
     "sprintf-js": "^1.1.1",
     "wepy": "^1.7.1"
   }

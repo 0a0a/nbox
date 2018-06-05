@@ -1,6 +1,6 @@
 {
   "name": "nbox-res",
-  "version": "0.3.3-0",
+  "version": "0.3.3",
   "description": "node-box-res useful resources. such as citys",
   "main": "index.js",
   "scripts": {

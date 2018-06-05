@@ -1,6 +1,6 @@
 {
   "name": "nbox-kit",
-  "version": "0.3.3-0",
+  "version": "0.3.3",
   "description": "node-box-kit useful toolkits.",
   "main": "index.js",
   "scripts": {

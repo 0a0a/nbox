@@ -1,6 +1,6 @@
 {
   "name": "nbox",
-  "version": "0.3.3-0",
+  "version": "0.3.3",
   "description": "nbox all in one.",
   "main": "index.js",
   "scripts": {
