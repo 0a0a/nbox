@@ -1,9 +1,11 @@
 {
   "name": "nbox-cli",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "nbox command line interface.",
   "main": "bin/nbox.js",
-  "bin": { "nbox": "./bin/nbox.js" },
+  "bin": {
+    "nbox": "./bin/nbox.js"
+  },
   "scripts": {
     "test": "echo pass"
   },
