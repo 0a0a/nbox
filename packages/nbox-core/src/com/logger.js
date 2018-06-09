@@ -144,38 +144,86 @@ const SUB_COM_LOGGER = (function() {
       super();
       this.task = null;
       this.items = [];
+      this.reqItems = [];
+      this.retryCnt = 0;
+      this.status = 'done';
     }
 
     open(option = {}, freezed = true) {
+      // 如果已有，要先关闭.
+      this.close();
+
       // 更新选项
-      option.interval = option.interval || 500;
+      option.interval = option.interval || 2000;
+      option.maxRetryCnt = option.maxRetryCnt || 5;
       this.option = Object.assign({}, super.option, this.option, option);
     
       // 子类自己open
-      let that = this;
+      const that = this;
       this.task = new CycleTask();
       this.task.start( function() {
-        let item = null;
-        while ((item = that.items.pop()) != null) {
-          that.doWriteOneItem(item);
+        // 有任务还没有结束，则直接返回.
+        if (that.status !== 'done') {
+          return;
         }
+        // 转移数据到请求状态.
+        that.transferItems2Req();
+        if (that.reqItems.length === 0) {
+          return;
+        }
+        // 置为运行状态.
+        that.status = 'runnig';
+        that.doWriteAllItem(that.reqItems).then(res => {
+          that.resetRetryCount();
+          that.clearReq();
+          that.status = 'done';
+        }).catch(err => {
+          console.log('write error. try later');
+          // 连错N次，则丢弃.
+          if (that.verifyMaxRetry()) {
+            that.clearReq();
+            console.log('write error and reach max try. Discard. items-cnts: %d', that.reqItems.length);
+          }
+          that.status = 'done';
+        });
       }, this.option.interval);
     }
     close() {
-      this.task.stop();
+      if (this.task) {
+        this.task.stop();
+        this.task = null;
+      }
     }
 
     writeOneItem(item) {
       this.items.push(item);
     }
 
-    handle() {
+    resetRetryCount() {
+      this.retryCnt = 0;
+    }
+    verifyMaxRetry() {
+      const b = ( ++ this.retryCnt >= this.option.maxRetryCnt);
+      if (b) this.resetRetryCount();
+      return b;
+    }
 
+    // 开始写: 将数据追加到reqItems中
+    // 成功写: 将reqItems清空
+    transferItems2Req() {
+      if (this.items.length > 0) {
+        this.reqItems = this.reqItems.concat([], this.reqItems, this.items);
+        this.items = [];
+      } 
+    }
+    clearReq() {
+      this.reqItems = [];
     }
 
     // 派生类，可以继续模版方法模式.
-    doWriteOneItem(item) {
-      debugPrint(item);
+    async doWriteAllItem(items) {
+      debugPrint(items);
+      return Promise.resolve('done'); 
     }
   }
 
