@@ -480,4 +480,6 @@ const out = {
     district: China.district
 };
 
+return out;
+
 })();

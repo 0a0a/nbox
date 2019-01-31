@@ -212,7 +212,7 @@ const SUB_COM_LOGGER = (function() {
     // 成功写: 将reqItems清空
     transferItems2Req() {
       if (this.items.length > 0) {
-        this.reqItems = this.reqItems.concat([], this.reqItems, this.items);
+        this.reqItems = this.reqItems.concat(this.items);
         this.items = [];
       } 
     }
